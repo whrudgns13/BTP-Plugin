@@ -1,0 +1,11 @@
+//@ui5-bundle com/shellplugin/Component-preload.js
+jQuery.sap.registerPreloadedModules({
+"version":"2.0",
+"modules":{
+	"com/shellplugin/Component.js":function(){sap.ui.define(["sap/ui/core/UIComponent"],function(e){"use strict";return e.extend("com.shellplugin.Component",{metadata:{manifest:"json"},init:function(){e.prototype.init.apply(this,arguments);console.log("Shell-plugIn");this._oShellContainer=jQuery.sap.getObject("sap.ushell.Container");sap.m.MessageToast.show("Hello Shell PlugIn");const o=this._oShellContainer.getRenderer();if(!o)return sap.m.MessageToast.show("not find shell Container");o.addHeaderEndItem({id:"myTestButton",icon:"sap-icon://hello-world",text:"hello world",press:()=>{sap.m.MessageToast.show("hello world")}},true)}})});
+},
+	"com/shellplugin/i18n/i18n.properties":'# This is the resource bundle for com.shellplugin\n\n#Texts for manifest.json\n\n#XTIT: Application name\nappTitle=Shell Plugin\n\n#YDES: Application description\nappDescription=shell-plugin\n#XTIT: Main view title\ntitle=App title\n\nflpTitle=Shell\n\nflpSubtitle=Shell\n\n\n',
+	"com/shellplugin/manifest.json":'{"_version":"1.49.0","sap.app":{"id":"com.shellplugin","type":"component","i18n":"i18n/i18n.properties","applicationVersion":{"version":"0.0.1"},"title":"Shell Plugin","description":"shell-plugin","resources":"resources.json","sourceTemplate":{"id":"@sap/generator-fiori:basic","version":"1.8.6","toolsId":"e72462f7-750e-416d-b5a8-c14939bf7590"},"crossNavigation":{"inbounds":{"com-shellplugin-inbound":{"signature":{"parameters":{},"additionalParameters":"allowed"},"semanticObject":"Shell","action":"plugin","hideLauncher":false}}}},"sap.ui5":{"flexEnabled":true,"dependencies":{"minUI5Version":"1.110.1","libs":{"sap.m":{},"sap.ui.core":{},"sap.f":{},"sap.suite.ui.generic.template":{},"sap.ui.comp":{},"sap.ui.generic.app":{},"sap.ui.table":{},"sap.ushell":{}}},"contentDensities":{"compact":true,"cozy":true},"models":{"i18n":{"type":"sap.ui.model.resource.ResourceModel","settings":{"bundleName":"testplugin.i18n.i18n"}}},"resources":{"css":[{"uri":"css/style.css"}]}},"sap.cloud":{"public":true,"service":"flp-plugin"},"sap.flp":{"type":"plugin"}}',
+	"com/shellplugin/test.js":function(){
+}
+}});

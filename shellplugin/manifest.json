@@ -1,0 +1,74 @@
+{
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "com.shellplugin",
+        "type": "component",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "Shell Plugin",
+        "description": "shell-plugin",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.8.6",
+            "toolsId": "e72462f7-750e-416d-b5a8-c14939bf7590"
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "com-shellplugin-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "Shell",
+                    "action": "plugin",
+                    "hideLauncher": false
+                }
+            }
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.110.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "testplugin.i18n.i18n"
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        }
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "flp-plugin"
+    },
+    "sap.flp": {
+        "type": "plugin"
+    }
+}
